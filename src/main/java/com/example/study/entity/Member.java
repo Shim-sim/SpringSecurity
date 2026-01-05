@@ -15,8 +15,16 @@ public class Member {
     @Column(name = "member_id")
     private BigInteger id;
 
+    @Setter
     private String userName;
+
+    @Setter
     private int age;
+
+    public Member(String userName, int age) {
+        this.userName = userName;
+        this.age = age;
+    }
 
     @ManyToOne
     private Team team;
