@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
+
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -52,14 +53,14 @@ class MemberRepositoryTest {
     }
     @Test
     void bulkTest() {
-        memberRepository.save(new Member("user1", 1));
+        memberRepository.save(new Member("user1", 10));
         memberRepository.save(new Member("user2", 10));
-        memberRepository.save(new Member("user3", 19));
+        memberRepository.save(new Member("user3", 10));
         memberRepository.save(new Member("user4", 1));
         memberRepository.save(new Member("user5", 1));
 
-        int resultCount = memberJpaRepository.bulkAge(10);
-        Assertions.assertEquals(2, resultCount);
+        int resultCount = memberRepository.bulkAge(10);
+        Assertions.assertEquals(3, resultCount);
     }
 
 
